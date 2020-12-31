@@ -1,0 +1,39 @@
+
+{% extends "bootstrap/base.html" %}
+
+{% block title %}自動単語帳作成アプリ{% endblock %}
+   
+{% block content %}
+
+ <div class="container h-100 "style='margin:2rem 1rem 2rem;'>
+  <a class="btn btn-primary" href="/" role="button" style='float:right'>単語登録</a>
+  <div class='clumns text-center' style='display:flex; justify-content: space-around;'>
+    <div class='col-lg-10 aligh-self-end'>
+      {% for word,_ in dic.items() %}
+      <div class="card border-success mb-3" style="max-width: 40rem; border-color: rgb(114, 108, 108); border-style: solid; border-width: 0.1rem;margin-bottom: auto;">
+        <div class="card-header">{{"No."+loop.index|string}}</div>
+        <div class="card-body text-success">
+          <h2 class="card-title">{{ word }}</h2>
+        </div>              
+      </div>
+      {% endfor %}
+    </div>
+    <div class='col-lg-10 aligh-self-end'>
+      <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">和訳を表示</button>
+      <div class="collapse" id="collapseExample">
+        <div class="border p-3">
+          {% for _,ans in dic.items() %}
+          <div class="card border-success mb-3" style="max-width: 40rem; border-color: rgb(114, 108, 108); border-style: solid; border-width:0.1rem; margin-bottom: auto;">
+            <div class="card-header">{{"No."+loop.index|string}}</div>
+            <div class="card-body text-success">
+              <h2 class="card-title">{{ ans }}</h2>
+            </div>              
+          </div>
+          {% endfor %}
+         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
