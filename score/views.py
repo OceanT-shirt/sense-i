@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import TakePicture
 from .models import ChoosePicture
+from .models import Result
 from .forms import UploadFirst
 from .forms import UploadSecond
 
@@ -30,6 +31,7 @@ class TakeCreateView(generic.CreateView):
 
 
 
+
 class ChooseCreateView(generic.CreateView):
     model = ChoosePicture
     template_name = "score/choose_pic.html"
@@ -50,5 +52,10 @@ class ChooseCreateView(generic.CreateView):
             'form': form
         }
         return render(request, 'score/choose_pic.html', context)
+
+class ResultCreateView(generic.CreateView):
+    model = Result
+    template_name = "score/result.html"
+    fields = '__all__'
 
 

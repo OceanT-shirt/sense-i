@@ -1,16 +1,20 @@
-{% extends 'base.html' %}
+{% extends 'base_b.html' %}
 {% load static %}
 
-
 {% block header %}
+  <script src="{% static 'js/score.js' %}"></script>
   <header class="masthead">
     <div class="container h-100">
       <div class="row h-100">
         <div class="col-lg-7 my-auto">
           <div class="header-content mx-auto">
-            <h1 class="mb-5">AIがあなたのファションを採点してくれる！学校や職場での『これでいいのかなぁ』、デート前の『大丈夫かなぁ』を今すぐ無くせる！！　</h1>
-            <a href="{% url 'score:take_pic' %}" class="btn btn-outline btn-xl js-scroll-trigger">撮影して採点してもらう</a>
-            <a href="{% url 'score:choose_pic' %}" class="btn btn-outline btn-xl js-scroll-trigger">持ってる画像を採点してもらう</a>
+            <h1 class="mb-5">画像を撮ろう！！</h1>
+              <video id="local_video"autoplay style="width: 300px; height:200px; border: 1px solid black;"></video>
+              <canvas id="canvas"autoplay style="width: 300px; height:200px; border: 1px solid black;"></canvas>
+              <form>
+              <button type="button" id="shutter">シャッター</button>
+              <button type="button" id="send">採点</button>
+              </form>
           </div>
         </div>
         <div class="col-lg-5 my-auto">
@@ -147,7 +151,3 @@
     </div>
   </section>
 {% endblock %}
-{#    <form action="" method="post" enctype="multipart/form-data">#}
-{#    {{ form.take_pic }}#}
-{#    <button type="submit" class="btn">採点スタート！！</button>#}
-{#    </form>#}

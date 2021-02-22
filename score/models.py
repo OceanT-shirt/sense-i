@@ -13,3 +13,11 @@ class ChoosePicture(models.Model):
         verbose_name = 'choose_pic',
         upload_to = 'images/'
     )
+
+class Result(models.Model):
+    picture = models.ImageField(
+        verbose_name = 'picture'
+    )
+    result = models.IntegerField(
+        verbose_name = 'result'
+    )
