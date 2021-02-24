@@ -4,6 +4,7 @@ from .models import ChoosePicture
 from .models import Result
 from .forms import UploadFirst
 from .forms import UploadSecond
+from django.views.decorators.http import require_POST
 
 from django.views import generic
 # Create your views here.
@@ -47,6 +48,7 @@ class ChooseCreateView(generic.CreateView):
                 choose_picture = ChoosePicture()
                 choose_picture.choose_pic = choose_pic
                 choose_picture.save()
+                request.session['form_data'] = request.POST
 
         context = {
             'form': form

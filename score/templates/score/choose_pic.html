@@ -10,8 +10,9 @@
           <div class="header-content mx-auto">
             <h1 class="mb-5">画像を選んでね</h1>
               <form action="" method="post" enctype="multipart/form-data">
+                 {% csrf_token %}
 　    　　　　　　　{{ form.choose_pic }}
-    　　　　　　　　<button type="submit" class="btn">採点スタート！！</button>
+    　　　　　　　　<button type="submit" class="btn" formaction="{% url 'score:result' %}">採点スタート！！</button>
     　　　　　　</form>
           </div>
         </div>
