@@ -3,28 +3,26 @@
 
 
 {% block header %}
-  <script src="{% static 'js/prototype.js' %}"></script>
   <header class="masthead">
     <div class="container h-100">
       <div class="row h-100">
         <div class="col-lg-7 my-auto">
           <div class="header-content mx-auto">
-            <h1 class="mb-5">こんにちは</h1>
-{#            <!--ダイアログを呼び出すボタン-->#}
-{#　　　　　　　<button id="btn_action2">ダイアログ表示</button>#}
-{##}
-{#　　　　　　　<!--ダイアログの内容-->#}
-{#　　　　　　　<div id="mydialog2" title="ボタン付きダイアログ">#}
-{#  　　　　　　　オリジナルダイアログをポップアップ表示するサンプル。<br />#}
-{#  　　　　　　<!--ラジオボタンを配置-->#}
-{#  　　　　　　<label><input type="radio" name="test" value="1" checked>選択肢1</label><br />#}
-{#  　　　　　　<label><input type="radio" name="test" value="2">選択肢2</label><br />#}
-{#  　　　　　　<!--チェックボックスを配置-->#}
-{#  　　　　　　<label><input type="checkbox" value="1">上記記載事項に同意します</label>#}
-{#　　　　　　　</div>#}
-            <a href="{% url 'score:take_pic' %}" class="btn btn-outline btn-xl js-scroll-trigger">撮影して採点してもらう</a>
-            <a href="{% url 'score:choose_pic' %}" class="btn btn-outline btn-xl js-scroll-trigger">持ってる画像を採点してもらう</a>
-            <a href="{% url 'score:result' %}" class="btn btn-outline btn-xl js-scroll-trigger">結果</a>
+            <h1 class="mb-5">Sense-i へようこそ！</h1>
+            <form>
+                <small>＊写真に映るものが人ではない場合や、対象の人以外に映り込む物が多すぎるとうまく採点されないことがあります</small>
+            </form>
+            <div class="dropdown">
+                <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    採点する
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <li><a href="{% url 'score:take_pic' %}" class="dropdown-item">撮影して採点してもらう</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="{% url 'score:choose_pic' %}" class="dropdown-item">持ってる画像を採点してもらう</a></li>
+                </ul>
+            </div>
+            <a href="{% url 'score:result' %}" class="btn btn-outline btn-xl js-scroll-trigger dropdown-item">結果</a>
           </div>
         </div>
         <div class="col-lg-5 my-auto">

@@ -5,26 +5,51 @@
 {% block header %}
   <header class="masthead">
     <div class="container h-100">
-      <div class="row h-100">
-        <div class="col-lg-7 my-auto">
-          <div class="header-content mx-auto">
-            <h1 class="mb-5">画像を選んでね</h1>
-          </div>
-        </div>
+      <div class="row h-100 justify-content-center">
         <div class="col-lg-5 my-auto">
-          <div class="device-container">
-            <div class="device-mockup iphone6_plus portrait white">
-              <div class="device">
-                <div class="screen">
-                  <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
-                  <img src="{% static 'img/demo-screen-1.jpg' %}" class="img-fluid" alt="">
-                </div>
-                <div class="button">
-                  <!-- You can hook the "home button" to some JavaScript events or just remove it -->
-                </div>
+            <div class="header-content mx-auto">
+              <div class="card bg-warning" style="max-width:200rem">
+                  <div class="card-header">
+                      <h4>採点結果</h4>
+                  </div>
+                  <img class="card-img-top" src="{% static 'img/サンプルパイナップル.jpg' %}" alt="">
+                  <div class="card-body">
+                      <p>結果を共有する</p>
+                      <div class="dropdown">
+                        <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          もう一度採点する
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <li><a href="{% url 'score:take_pic' %}" class="dropdown-item">撮影して採点してもらう</a></li>
+                            <li role="separator" class="divider"></li>
+                          <li><a href="{% url 'score:choose_pic' %}" class="dropdown-item">持ってる画像を採点してもらう</a></li>
+                        </ul>
+                      </div>
+                  </div>
               </div>
             </div>
-          </div>
+        </div>
+        <div class="col-lg-5 my-auto">
+            <div class="header-content mx-auto">
+              <div class="card bg-info" style="max-width:200rem">
+                  <div class="card-header">
+                      <h2>点数</h2>
+                  </div>
+                  <div class="card-body">
+                      <h1>100点</h1>
+                  </div>
+              </div>
+                <div>
+                <div class="card bg-info" style="max-width:200rem">
+                  <div class="card-header">
+                      <h2>コメント</h2>
+                  </div>
+                  <div class="card-body">
+                      <h2>美味しそう（ﾆﾁｬ）</h2>
+                  </div>
+                </div>
+                </div>
+            </div>
         </div>
       </div>
     </div>
