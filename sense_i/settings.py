@@ -54,7 +54,7 @@ ROOT_URLCONF = 'sense_i.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'sense_i/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -74,12 +74,14 @@ WSGI_APPLICATION = 'sense_i.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'sense_i',
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB.PASSWORD'),
-        'HOST': '',
-        'POST': '',
+        # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        # 'NAME': 'sense_i',
+        # 'USER': os.environ.get('DB_USER'),
+        # 'PASSWORD': os.environ.get('DB.PASSWORD'),
+        # 'HOST': '',
+        # 'POST': '',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),  # WARNING: database is temporally changed to sqlite3
     }
 }
 

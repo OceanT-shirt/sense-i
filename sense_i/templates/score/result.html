@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block navigation %}{% endblock %}
+
+
+{% block header %}
+  <header class="masthead">
+    <div class="container h-100">
+      <div class="row h-100 justify-content-center">
+        <div class="col-lg-5 my-auto">
+            <div class="header-content mx-auto">
+              <div class="card bg-warning" style="max-width:200rem">
+                  <div class="card-header">
+                      <h4>採点結果</h4>
+                  </div>
+                  <img class="card-img-top" src="{% static 'img/サンプルパイナップル.jpg' %}" alt="">
+                  <div class="card-body">
+                      <p>結果を共有する</p>
+                      <div class="dropdown">
+                        <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          もう一度採点する
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <li><a href="{% url 'score:take_pic' %}" class="dropdown-item">撮影して採点してもらう</a></li>
+                            <li role="separator" class="divider"></li>
+                          <li><a href="{% url 'score:choose_pic' %}" class="dropdown-item">持ってる画像を採点してもらう</a></li>
+                        </ul>
+                      </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+        <div class="col-lg-5 my-auto">
+            <div class="header-content mx-auto">
+              <div class="card bg-info" style="max-width:200rem">
+                  <div class="card-header">
+                      <h2>点数</h2>
+                  </div>
+                  <div class="card-body">
+                      <h1>100点</h1>
+                  </div>
+              </div>
+                <div>
+                <div class="card bg-info" style="max-width:200rem">
+                  <div class="card-header">
+                      <h2>コメント</h2>
+                  </div>
+                  <div class="card-body">
+                      <h2>美味しそう（ﾆﾁｬ）</h2>
+                  </div>
+                    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
+                       data-size="large"
+                       data-text="ファッション採点AI&quot;Sense-i&quot;での採点結果は・・・{{ result }}点でした！"
+                       data-url="https://www.instagram.com/h.takahira0205/?hl=ja"
+                       data-hashtags="ファッションAI,sense_i"
+                       data-related="h_takahira_fst" data-show-count="false">
+                        Tweet
+                    </a>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </header>
+{% endblock %}
+
+{% block main_contents %}{% endblock %}
