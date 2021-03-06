@@ -36,7 +36,7 @@ function camera(){
 
   function tenso(picture) {
 	  return $.ajax({
-		  url: "http://localhost:8080/camera",//phpファイルのURL
+		  url: "http://127.0.0.1:8000/score/image",//phpファイルのURL
 		  type: "post",
 		  data: {"image": picture},
 		  success: function () {	// 転送成功時.
@@ -47,7 +47,7 @@ function camera(){
 		  }
 	  })
   }
-}
+}　//https://elsammit-beginnerblg.hatenablog.com/entry/2020/06/16/214024　参照
 
 
 

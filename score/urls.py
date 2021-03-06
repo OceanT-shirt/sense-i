@@ -7,7 +7,6 @@ urlpatterns = [
     path('takepic', views.TakeCreateView.as_view(), name='take_pic'),
     path('choosepic', views.ChooseCreateView.as_view(), name='choose_pic'),
     path('result', views.ResultCreateView.as_view(), name='result'),
-
 ]
 
 # urlpatterns += static(settings_common.MEDIA_URL, document_root=settings_dev.MEDIA_ROOT)
