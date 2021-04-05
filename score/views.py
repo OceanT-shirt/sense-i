@@ -1,12 +1,12 @@
 from django.shortcuts import render
-from .models import TakePicture
-from .models import ChoosePicture
-from .models import Result
-from .forms import UploadFirst
-from .forms import UploadSecond
-from django.views.decorators.http import require_POST
-
+from .models import Image
+from django.http import HttpResponse
+from .models import TakePicture, Result, ChoosePicture
+from .forms import UploadFirst, UploadSecond
 from django.views import generic
+import base64
+import cv2
+import numpy as np
 # Create your views here.
 
 class TakeCreateView(generic.CreateView):
@@ -59,5 +59,25 @@ class ResultCreateView(generic.CreateView):
     model = Result
     template_name = "score/result.html"
     fields = '__all__'
+
+def ImageUpload(request):
+    if request.method == 'POST':
+        print(list(request.POST.items()))
+        print(dict(request.POST.items()))
+        print(dict(request.FILES))
+        posted_img = request.FILES['image']
+        image = request.POST.get("image")
+        image2 = dict(request.POST.items())["image"]
+        new_image = Image.objects.create(image=posted_img)
+
+        img_data = base64.b64decode(image)
+        img_np = np.fromstring(img_data, np.uint8)
+        src = cv2.imdecode(img_np, cv2.IMREAD_ANYCOLOR)
+
+        print(src)
+
+        return HttpResponse(new_image.image.url)
+
+
 
 

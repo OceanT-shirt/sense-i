@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block header %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="{% static 'js/score.js' %}"></script>
   <header class="masthead">
     <div class="container h-100">
@@ -33,7 +34,8 @@
           </div>
           <img id="img">
           <form>
-              <button type="button" id="send">採点</button>
+              {% csrf_token %}
+              <button type="button" class="btn" id="send" formaction="{% url 'score:result' %}">採点</button>
           </form>
         </div>
           <div class="col-lg-7 my-auto">
